@@ -1,6 +1,9 @@
 package exercise4;
 
 import common.Counter;
+import exercise1.SynchronizedCounter;
+import exercise2.LockingCounter;
+import exercise3.AtomicCounter;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -12,7 +15,7 @@ import static common.CountingRunner.numberOfThreads;
 public class Main {
 
     public static void main(String[] args) throws InterruptedException {
-        Counter counter = null; // TODO: Provide counter implementation
+        Counter counter = new SynchronizedCounter();
         execute(counter);
     }
 
