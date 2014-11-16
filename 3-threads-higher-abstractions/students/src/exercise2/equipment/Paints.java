@@ -1,12 +1,23 @@
 package exercise2.equipment;
 
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ArrayBlockingQueue;
+
 public class Paints {
 
+    private final BlockingQueue<String> queue = new ArrayBlockingQueue<String>(3);
+
+    public Paints() {
+      queue.offer("red");
+      queue.offer("green");
+      queue.offer("blue");
+    }
+
     public String takePaint() throws InterruptedException {
-        return null;
+        return queue.take();
     }
 
     public void returnPaint(String paint) {
-
+        queue.offer(paint);
     }
 }
